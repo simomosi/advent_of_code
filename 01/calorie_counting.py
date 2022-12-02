@@ -56,7 +56,7 @@ def main():
     max_elf = None
     current_elf = None
     elf_number = 0
-    with open('input.txt', 'r') as file:
+    with open('01/input.txt', 'r') as file:
         for line in file:
             if line == '\n':
                 if max_elf is None or current_elf.get_calories() > max_elf.get_calories():
