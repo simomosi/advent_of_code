@@ -1,19 +1,22 @@
 '''
 https://adventofcode.com/2022/day/3
 
-Part 1 and 2
-Let m be the length of the longest string
-Let n be the number of lines in the input file
-Time Complexity:
-- Read through n lines
-- Split each line in half (each of m/2 characters)
-- Put each half in a Set (O(m/2) time) and compute sets intersection (O(m/2) time if Python does it in the best way)
-Total complexity is O(n*m)
-Space Complexity: O(m)
-
 Output
 [1] Priorities sum is 7428
 [2] Badges priority sum is 2650
+
+Part 1 and 2
+Let m be the length of the longest string
+Let n be the number of lines in the input file
+
+Time Complexity:
+- Read through n lines
+- Split each line in half (each of m/2 characters)
+- Put each half in a Set (O(m/2) time)
+- Compute sets intersection (O(m/2) time if Python does it in the best way)
+Total complexity is O(n*m)
+
+Space Complexity: O(m)
 '''
 
 def main_part_one() -> None:
