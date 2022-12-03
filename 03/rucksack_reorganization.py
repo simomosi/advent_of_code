@@ -22,36 +22,29 @@ def main_part_one() -> None:
         for line in file:
             line = line.strip()
             length = len(line)
-            first_compartment = line[:length//2]
-            second_compartment = line[length//2:]
 
-            first_compartment_set = {c for c in first_compartment}
-            second_compartment_set = {c for c in second_compartment}
-            set_intersection = first_compartment_set & second_compartment_set
-            priority_sum += get_priority(set_intersection.pop())
-            
+            first_compartment_set = set(line[:length//2])
+            second_compartment_set = set(line[length//2:])
+            sets_intersection = first_compartment_set & second_compartment_set
+            priority_sum += get_priority(sets_intersection.pop()) # Assumption: exatly 1 character in common between sets
     print(f"[1] Priorities sum is {priority_sum}")
 
 def main_part_two() -> None:
     priority_sum = 0
     with open('03/input.txt', 'r') as file:
         while True:
-            rucksack_one = file.readline().strip()
-            rucksack_two = file.readline().strip()
-            rucksack_three = file.readline().strip()
-            if rucksack_one == '':
+            set_one = set(file.readline().strip())
+            set_two = set(file.readline().strip())
+            set_three = set(file.readline().strip())
+            if len(set_three) == 0:
                 break
-
-            set_one = {c for c in rucksack_one}
-            set_two = {c for c in rucksack_two}
-            set_three = {c for c in rucksack_three}
-            set_intersection = set_one & set_two & set_three
-            priority_sum += get_priority(set_intersection.pop())
+            sets_intersection = set_one & set_two & set_three
+            priority_sum += get_priority(sets_intersection.pop())
     print(f"[2] Badges priority sum is {priority_sum}")
 
 def get_priority(character: str) -> int:
     if 'a' <= character <= 'z':
-        priority = ord(character)-96 # 1 <= priority <= 26
+        priority = ord(character) - ord('a') + 1  # 1 <= priority <= 26
     elif 'A' <= character <= 'Z':
         priority = ord(character) - ord('A') + 27 # 27 <= priority <= 52
     else:
