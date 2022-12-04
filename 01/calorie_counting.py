@@ -11,9 +11,9 @@ Time Complexity: O(n)
 Space Complexity: O(1)
 
 Part 2
-Let m be the number of the top elves to use for the computation
-Time complexity: O(n)
-Space complexity: O(m); after the class instantiation, this value is constant and the space complexity is O(1)
+Let m be the number of the top elves to use for the computation; when the program starts this value is fixed (and constant)
+Time complexity: O(n*m) = O(n) because m is fixed
+Space complexity: O(m) = O(1) because m is fixed
 '''
 
 class Elf:
