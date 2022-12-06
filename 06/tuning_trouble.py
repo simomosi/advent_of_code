@@ -8,29 +8,33 @@ Output
 Let n be the number of characters
 Let p be the packet length
 Let m be the message length
+
 Time Complexity:
 - For each character in input (O(n))
 - Decrease old character occurrences (O(1) assuming dict.update method is well implemented)
 - Increase new character occurrences (O(1) assuming dict.update method is well implemented)
-- Update marker (O(p) for part one, O(m) for part two)
+- Update marker (O(1) thanks to collections.deque)
+Total: O(n)
 
 Space Complexity:
 O(p) for part 1, O(m) for part 2
 Dictionary size is O(size_of_the_alphabet)
 '''
 
+from collections import deque
+
 class SlidingWindow:
     def __init__(self, initial_string: str):
         self.characters_occurrence_map: dict[str, int] = {}
-        self.marker: list[str] = []
         self.characters_added: int = len(initial_string)
+        self.marker: deque = deque(maxlen=self.characters_added)
         for c in initial_string:
             self.marker.append(c)
             occurrences = self.characters_occurrence_map.get(c, 0)
             self.characters_occurrence_map.update({c: occurrences+1})
             
     def slide(self, new_character: str) -> None:
-        old_character = self.marker[0]
+        old_character = self.marker.popleft()
         old_character_occurrences = self.characters_occurrence_map.get(old_character)
         self.characters_occurrence_map.update({old_character: old_character_occurrences-1})
 
@@ -39,7 +43,6 @@ class SlidingWindow:
 
         self.characters_added += 1
         self.marker.append(new_character)
-        del self.marker[0] # TODO this could be optimized (it's O(len(marker)) ), but the overall complexity does not change
 
     def is_valid_marker(self) -> bool:
         for c in self.marker:
