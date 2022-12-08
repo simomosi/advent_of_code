@@ -13,7 +13,7 @@ Space Complexity: O(n2)
 
 Part 2
 Time Complexity:  O(n2 * (n+n)) = O(n3)
-Space Complexity: O(n2)
+Space Complexity: O(n)
 '''
 
 def main():
@@ -29,12 +29,15 @@ def main():
     visible_trees = count_visibles(grid, rows, columns)
     print(f"[1] The number of trees visible from outside the grid is {visible_trees}")
     
-    scenic_scores:list[int] = []
+    scenic_scores: list[int] = []
     for i in range(rows):
+        scenic_scores_rows:list[int] = []
         for j in range(columns):
-            scenic_scores.append(compute_scenic_score(grid, i, j, rows, columns))
+            scenic_scores_rows.append(compute_scenic_score(grid, i, j, rows, columns))
+        scenic_scores.append(max(scenic_scores_rows))
+        scenic_scores_rows = None
             
-    print(f"[2] The highest scenic score is {max(scenic_scores)}") # 124 too low
+    print(f"[2] The highest scenic score is {max(scenic_scores)}")
 
 def count_visibles(grid: list[list[int]], rows_number: int, columns_number: int) -> int:
     visible_coordinate_set: set(int, int) = set()
