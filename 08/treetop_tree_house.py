@@ -13,7 +13,7 @@ Space Complexity: O(n2)
 
 Part 2
 Time Complexity:  O(n2 * (n+n)) = O(n3)
-Space Complexity: O(1)
+Space Complexity: O(n2)
 '''
 
 def main():
