@@ -3,6 +3,7 @@ https://adventofcode.com/2022/day/13
 
 Output
 [1] Sum of correct indices is 6046
+[2] Multiplication of divider packets indices is 21423
 '''
 
 import functools
