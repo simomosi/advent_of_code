@@ -1,6 +1,6 @@
-# Advent of Code 2022
+# Advent of Code
 
-This is my work for the [Advent of Code 2022](https://adventofcode.com/) program.
+This is my work for the [Advent of Code](https://adventofcode.com/) program.
 
 I will focus on readability and time and space complexities computation, not on completing puzzles as fast as possible.
 
