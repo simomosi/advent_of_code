@@ -6,9 +6,10 @@ I will focus on readability and time and space complexities computation, not on 
 
 If you have any tip you are welcome to discuss it with me.
 
-Scripts must be executed in the root folder (otherwise the debugger won't find any input file for it will be executed in the root folder).
+Scripts must be executed in the root folder (standard configuration for Visual Studio Code IDE).
+
 ```bash
-python3 01/calorie_counting.py
+python3 2022/01/calorie_counting.py
 ```
 
 Enjoy, and may Santa be with you!
