@@ -8,7 +8,7 @@ Output
 This script has not been OOP-ed because navigating a matrix in a smart way without allocating it is just a lot of math (+1, -1, saving positions etc).
 '''
 
-def main():
+def main() -> None:
     sum = 0
     gear_ratio_sum = 0
     symbols_coordinates_set = set()
